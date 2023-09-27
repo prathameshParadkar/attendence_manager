@@ -1,0 +1,42 @@
+<% layout('layouts/boilerplate') %>
+<div>
+    <h1>Create a Subject</h1>
+    <form action="/create-subject" method="POST">
+        <!-- Title -->
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+
+        <!-- Duration -->
+        <div class="mb-3">
+            <label for="duration" class="form-label">Duration</label>
+            <input type="number" class="form-control" id="duration" name="duration" required>
+        </div>
+
+        <!-- Faculty -->
+        <div class="mb-3">
+            <label for="faculty" class="form-label">Faculty</label>
+            <select class="form-control" id="faculty" name="faculty" required>
+                
+                <% for(let teacher of teachers){%>
+                    <option value='<%= teacher._id %>'><%= teacher.name  %></option>
+                <%}%>
+            </select>
+        </div>
+
+        <!-- Total -->
+        <div class="mb-3">
+            <label for="total" class="form-label">Total</label>
+            <input type="number" class="form-control" id="total" name="total" required>
+        </div>
+
+        <!-- Attended -->
+        <div class="mb-3">
+            <label for="attended" class="form-label">Attended</label>
+            <input type="number" class="form-control" id="attended" name="attended" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create Subject</button>
+    </form>
+</div>

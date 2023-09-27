@@ -1,0 +1,17 @@
+<% layout('layouts/boilerplate')%>
+<div>
+    <span style="display: inline-block;">
+        <h1><%=sub.title%></h1>
+        <h3><%=sub.faculty%></h3>
+    </span>
+    <h3>Duration : <%=sub.duration%></h3>
+    <h3>Attended : <%=sub.attended  %></h3>
+    <h3>Total : <%=sub.total %></h3>
+    <h3>Percentage : <%= parseFloat(sub.attended/sub.total * 100).toFixed(2) %>%</h3>
+    <form method="POST" action="/lecture/<%= sub._id %>/markPresence">
+        <button type="submit">Attended</button>
+    </form>
+    <form method="POST" action="/lecture/<%= sub._id %>/markAbsence">
+        <button type="submit">Unattended</button>
+    </form>
+</div>

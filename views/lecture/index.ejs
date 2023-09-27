@@ -1,0 +1,20 @@
+<% layout('layouts/boilerplate')%>
+    <h1>
+        All subjects
+    </h1>
+        <% for(let subs of sub){%>
+        <div class="card" mb-3>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= subs.title %> </h5>
+                        <p class="card-text"><%= subs.faculty %></p>
+                        <p class="card-text">
+                            <small class="text-muted"><%= subs.duration%></small>
+                        </p>
+                        <a class="btn btn-primary" href="/lecture/<%=subs._id%>">View <%=subs.title%></a>
+                    </div>
+                </div>
+            </div>
+</div>   
+<%}%>
